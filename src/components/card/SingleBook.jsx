@@ -9,7 +9,6 @@ const SingleBook = ({ img, category, price, title, onSelect, id, selectedValue }
   const selectedHandler = () => {
     setSelected(!selected);
     onSelect(id, !selected);
-    console.log(selectedValue+" "+selected)
   }
 
   return (

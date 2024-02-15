@@ -8,7 +8,6 @@ const Main = ({searchValue}) => {
   const setBooksCopy = (books)=>{
     setBooks(books);
   }
- // console.log(books)
 
   const selectHandler = (id, selectedValue) => {
     const index = books.findIndex(book => book.asin === id);
