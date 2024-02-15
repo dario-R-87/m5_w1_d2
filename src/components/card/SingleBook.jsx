@@ -2,12 +2,14 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const SingleBook = ({ img, category, price, title }) => {
+const SingleBook = ({ img, category, price, title, onSelect, id, selectedValue }) => {
 
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(selectedValue);
 
   const selectedHandler = () => {
     setSelected(!selected);
+    onSelect(id, !selected);
+    console.log(selectedValue+" "+selected)
   }
 
   return (

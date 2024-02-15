@@ -8,11 +8,24 @@ const Main = ({searchValue}) => {
   const setBooksCopy = (books)=>{
     setBooks(books);
   }
+ // console.log(books)
+
+  const selectHandler = (id, selectedValue) => {
+    const index = books.findIndex(book => book.asin === id);
+    if (index !== -1) { 
+        const updatedBooks = [...books];
+        updatedBooks[index] = {
+            ...updatedBooks[index],
+            selected: selectedValue
+        };
+        setBooks(updatedBooks);
+    }
+  }
 
   return (
     <>
-     {searchValue ==="" && <AllTheBooks onLoadBooks={setBooksCopy}/>}
-     {searchValue !=="" && <BooksFiltered books={books} searchValue={searchValue}/>}
+     {searchValue ==="" && <AllTheBooks booksCopy={books} onLoadBooks={setBooksCopy} onSelect={selectHandler}/>}
+     {searchValue !=="" && <BooksFiltered books={books} searchValue={searchValue} onSelect={selectHandler}/>}
     </>
   );
 };

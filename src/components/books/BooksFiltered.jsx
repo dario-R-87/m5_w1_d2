@@ -2,7 +2,7 @@ import SingleBook from "../card/SingleBook";
 import { nanoid } from "nanoid";
 import { Container, Row } from "react-bootstrap";
 
-const BooksFiltered = ({ books, searchValue }) => {
+const BooksFiltered = ({ books, searchValue, onSelect  }) => {
 
     const filteredBooks = books.filter((book) => {
         return book.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -19,6 +19,9 @@ const BooksFiltered = ({ books, searchValue }) => {
                             category={book.category}
                             price={book.price}
                             title={book.title}
+                            onSelect={onSelect}
+                            id={book.asin}
+                            selectedValue={book.selected}
                         />
                     );
                 })}

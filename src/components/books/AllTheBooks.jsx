@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { Container, Row } from "react-bootstrap";
 import LoadSpinner from "../loading/LoadSpinner";
 
-const AllTheBooks = ({ onLoadBooks }) => {
+const AllTheBooks = ({booksCopy, onLoadBooks, onSelect }) => {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,19 +23,20 @@ const AllTheBooks = ({ onLoadBooks }) => {
   };
 
   useEffect(() => {
-    getData();  
+    getData();
   }, []);
 
-  useEffect(()=>{ 
-    onLoadBooks(books);
-  },[books,onLoadBooks])
+  useEffect(()=>{
+    if(booksCopy.length===0) 
+      onLoadBooks(books);
+  },[books])
 
   return (
     <Container>
       <Row className="gap-3 justify-content-center my-3">
         {error && <div>Ops, something went wrong...</div>}
         {loading && !error && <LoadSpinner />}
-        {!loading && !error && books.map((book) => {
+        {!loading && !error && booksCopy.map((book) => {
           return (
             <SingleBook
               key={nanoid()}
@@ -43,6 +44,9 @@ const AllTheBooks = ({ onLoadBooks }) => {
               category={book.category}
               price={book.price}
               title={book.title}
+              onSelect={onSelect}
+              id={book.asin}
+              selectedValue={book.selected}
             />
           );
         })}
