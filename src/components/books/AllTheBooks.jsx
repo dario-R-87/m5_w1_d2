@@ -27,7 +27,6 @@ const AllTheBooks = ({ onLoadBooks }) => {
   }, []);
 
   useEffect(()=>{ 
-    console.log(books)
     onLoadBooks(books);
   },[books,onLoadBooks])
 

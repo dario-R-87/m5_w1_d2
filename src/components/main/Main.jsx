@@ -5,14 +5,13 @@ import { useState } from "react";
 const Main = ({searchValue}) => {
   const [books, setBooks] = useState([]);
 
-  const getBooks = (books)=>{
+  const setBooksCopy = (books)=>{
     setBooks(books);
-    console.log(books)
   }
 
   return (
     <>
-     {searchValue ==="" && <AllTheBooks onLoadBooks={getBooks}/>}
+     {searchValue ==="" && <AllTheBooks onLoadBooks={setBooksCopy}/>}
      {searchValue !=="" && <BooksFiltered books={books} searchValue={searchValue}/>}
     </>
   );

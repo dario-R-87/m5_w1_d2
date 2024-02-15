@@ -12,7 +12,6 @@ const BooksFiltered = ({ books, searchValue }) => {
         <Container>
             <Row className="gap-3 justify-content-center my-3">
                 {filteredBooks.map((book) => {
-                    console.log(book)
                     return (
                         <SingleBook
                             key={nanoid()}
