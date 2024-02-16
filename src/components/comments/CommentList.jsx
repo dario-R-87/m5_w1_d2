@@ -3,7 +3,8 @@ import { nanoid } from "nanoid";
 
 const CommentList = ({ comments }) => {
     return (
-        <ol>
+        <ul>
+            <h3 className="text-center">Comments List</h3>
             {comments.map((comment) => {
                 return (
                     <SingleComment
@@ -13,7 +14,7 @@ const CommentList = ({ comments }) => {
                     />
                 );
             })}
-        </ol>
+        </ul>
     );
 }
 
