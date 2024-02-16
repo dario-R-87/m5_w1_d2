@@ -38,3 +38,7 @@ code {
 
 .navbar-toggler {
 background-color: white;}
+
+.img_card:hover{
+  cursor: pointer;
+}
