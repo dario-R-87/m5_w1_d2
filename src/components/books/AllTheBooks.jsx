@@ -24,7 +24,6 @@ const AllTheBooks = ({booksCopy, onLoadBooks, onSelect }) => {
 
   useEffect(() => {
     getData();
-    console.log(books)
   }, []);
 
   useEffect(()=>{
