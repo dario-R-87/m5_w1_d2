@@ -15,7 +15,7 @@ function NavScrollExample({ onSearch }) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/m5_w1_d2/">Home</Nav.Link>
           </Nav>
           <SearchBar onSearch={onSearch}/>
         </Navbar.Collapse>
